@@ -1,0 +1,42 @@
+// COLOR VARIABLES
+$color-primary: #f9f7f6;
+
+$color-grey-light-2: #aaa;
+
+$color-grey-dark-1: #54483a;
+$color-grey-dark-2: #6d5d4b;
+
+// FONT VARIABLES
+$font-primary: 'Lato', sans-serif;
+$font-color: #777;
+
+//RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; //1200px
+$bp-large: 62.5em; //1000px
+$bp-medium: 50em; //800px / 16 = 50em
+$bp-small: 37.5em; //600px
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.6%; //10px === 1 rem. 10px/16px = 62.5%
+}
+
+body {
+    font-family: $font-primary;
+    color: $color-grey-dark-2;
+    font-weight: 300;
+    line-height: 1.6;
+    padding: 3rem; //border around entire webpage
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 0;
+    }
+}
