@@ -13,6 +13,7 @@
     background-position: top;
     grid-template-columns: 1fr minmax(20rem, 2fr) 1fr;
     grid-template-rows: 1fr 25rem repeat(2, 1fr);
+    clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
 
     @media only screen and (max-width: $bp-small) {
         grid-template-rows: 1fr 15rem repeat(2, 1fr);
@@ -20,7 +21,7 @@
 
     .logo {
         width: 5rem;
-        margin: 1.5rem 0 0 1.5rem;
+        margin: 3rem 0 0 1.5rem;
     }
 
     .nav-btn {
@@ -89,7 +90,9 @@
             letter-spacing: 3rem;
             font-weight: 400;
             line-height: 10rem;
+            transform: translateX(1.5rem);
             transition: all 1s;
+            animation: slideInRight 1s;
 
             @media only screen and (max-width: $bp-medium) {
                 // font-size: 5.5rem;
@@ -109,6 +112,7 @@
             font-size: 2.6rem;
             letter-spacing: 1.4rem;
             transition: all 1s;
+            animation: slideInLeft 1s;
 
             @media only screen and (max-width: $bp-large) {
                 // font-size: 1.8rem;
@@ -145,6 +149,7 @@
         text-transform: uppercase;
         font-weight: 400;
         color: $font-color;
+        min-width: 32rem;
 
         border: none;
         border-radius: 10rem;
@@ -152,6 +157,9 @@
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
         background-color: #fff;
         transition: all 0.3s;
+        opacity: 0;
+
+        animation: slideUp 1s ease-in-out 0.8s forwards;
 
         &:hover {
             transform: translateY(-3px);
@@ -162,9 +170,10 @@
             transform: translateY(0);
         }
 
-        @media only screen and (max-width: $bp-medium) {
-            padding: 1rem 2rem;
-            font-size: 1.4rem;
+        @media only screen and (max-width: $bp-small) {
+            // padding: 1.5rem 5rem;
+            font-size: 1.5rem;
+            min-width: 27rem;
         }
 
         &::after {
@@ -189,13 +198,43 @@
     }
 }
 
-@keyframes scaleup {
-    from {
-        transform: scale(1);
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-7rem);
     }
 
-    to {
-        transform: scale(1.5);
+    80% {
+        transform: translateX(2rem);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
         opacity: 0;
+        transform: translateX(7rem);
+    }
+
+    80% {
+        transform: translateX(-2rem);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    100% {
+        opacity: 1;
     }
 }
