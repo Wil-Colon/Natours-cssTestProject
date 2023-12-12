@@ -1,4 +1,4 @@
-@import '../index.scss';
+@import '../../index.scss';
 
 .header {
     display: grid;
@@ -8,7 +8,7 @@
             rgba(126, 213, 111, 0.8),
             rgba(40, 180, 133, 0.8)
         ),
-        url('../assets/images/hero.jpg');
+        url('../../assets/images/hero.jpg');
     background-size: cover;
     background-position: top;
     grid-template-columns: 1fr minmax(20rem, 2fr) 1fr;
@@ -25,7 +25,8 @@
     }
 
     .nav-btn {
-        position: relative;
+        z-index: 2;
+        position: fixed;
         width: 6rem;
         height: 6rem;
         padding: 1.5rem;
@@ -34,7 +35,6 @@
         grid-row: 1/2;
         background-color: white;
         justify-self: end;
-
         border-radius: 50%;
         border-style: none;
         display: flex;
@@ -57,20 +57,13 @@
             transition: all 0.2s;
         }
 
-        &:hover::before {
-            transform: rotate(135deg) translateX(7px) translateY(-7px);
-        }
-
         & span {
             background-color: $color-grey-dark-2;
             content: '';
             width: 3rem;
             height: 0.2rem;
             margin: auto;
-            transition: all 0.2s;
-        }
-        &:hover span {
-            opacity: 0;
+            transition: all 0.1s;
         }
 
         &::after {
@@ -81,10 +74,18 @@
             margin: auto;
             transition: all 0.2s;
         }
+    }
 
-        &:hover:after {
-            transform: rotate(-135deg) translateX(7px) translateY(7px);
-        }
+    .btn-animate span {
+        width: 0rem;
+    }
+
+    .btn-animate::before {
+        transform: rotate(135deg) translateX(7px) translateY(-7px);
+    }
+
+    .btn-animate::after {
+        transform: rotate(-135deg) translateX(7px) translateY(7px);
     }
 
     .text-box {
@@ -95,6 +96,7 @@
         align-self: center;
         justify-self: center;
         text-align: center;
+        z-index: 1;
 
         &__primary-main {
             font-size: 8rem;
@@ -106,13 +108,10 @@
             animation: slideInRight 1s;
 
             @media only screen and (max-width: $bp-medium) {
-                // font-size: 5.5rem;
-                // letter-spacing: 2rem;
                 transform: scale(0.8);
             }
 
             @media only screen and (max-width: $bp-small) {
-                // font-size: 4.8rem;
                 letter-spacing: 1rem;
                 line-height: 6rem;
                 transform: scale(0.6);
@@ -125,20 +124,11 @@
             transition: all 1s;
             animation: slideInLeft 1s;
 
-            @media only screen and (max-width: $bp-large) {
-                // font-size: 1.8rem;
-                // letter-spacing: 1.5rem;
-                // transform: scale(0.8);
-            }
-
             @media only screen and (max-width: $bp-medium) {
-                // font-size: 2rem;
-                // letter-spacing: 1rem;
                 transform: scale(0.8);
             }
 
             @media only screen and (max-width: $bp-small) {
-                // font-size: 1.5rem;
                 letter-spacing: 0.8rem;
                 font-weight: 800;
                 transform: scale(0.6);
@@ -154,14 +144,12 @@
         grid-row: 3/4;
         justify-self: center;
         align-self: flex-start;
-
         font-size: 2rem;
         padding: 1.5rem 5rem;
         text-transform: uppercase;
         font-weight: 400;
         color: $font-color;
         min-width: 32rem;
-
         border: none;
         border-radius: 10rem;
         text-decoration: none;
@@ -182,7 +170,6 @@
         }
 
         @media only screen and (max-width: $bp-small) {
-            // padding: 1.5rem 5rem;
             font-size: 1.5rem;
             min-width: 27rem;
         }
@@ -191,7 +178,6 @@
             content: 'discover our tours';
             display: inline-block;
             position: absolute;
-
             background-color: #fff;
             top: 0;
             left: 0;
