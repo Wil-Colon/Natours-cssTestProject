@@ -1,19 +1,99 @@
+@import '../../index.scss';
+
 .navigation {
     position: fixed;
-    top: 4.5rem;
-    right: 4rem;
-    height: 100vh;
-    width: 100vw;
-    z-index: 2;
-    background-image: radial-gradient(#7ed56f, #28b485);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    top: 4.3rem;
+    right: 4.5rem;
+    z-index: 1;
 
-    border-radius: 50%;
+    @media only screen and (max-width: $bp-medium) {
+        top: 1.5rem;
+        right: 1.5rem;
+    }
 
-    opacity: 1;
-    width: 0;
+    &__btn {
+        height: 6rem;
+        z-index: 9999999;
+        position: relative;
+
+        padding: 1.5rem;
+
+        grid-column: 3/4;
+        grid-row: 1/2;
+        background-color: white;
+        justify-self: end;
+        border-radius: 50%;
+        border-style: none;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.2s;
+        cursor: pointer;
+
+        justify-content: space-between;
+
+        @media only screen and (max-width: $bp-small) {
+            transform: scale(0.8);
+        }
+
+        &::before {
+            content: '';
+            background-color: $color-grey-dark-2;
+            width: 3rem;
+            height: 0.2rem;
+            margin: auto;
+            transition: all 0.15s;
+        }
+
+        & span {
+            background-color: $color-grey-dark-2;
+            content: '';
+            width: 3rem;
+            height: 0.2rem;
+            margin: auto;
+            transition: all 0.1s;
+        }
+
+        &::after {
+            content: '';
+            background-color: $color-grey-dark-2;
+            width: 3rem;
+            height: 0.2rem;
+            margin: auto;
+            transition: all 0.15s;
+        }
+    }
+
+    .btn-animate span {
+        width: 0rem;
+    }
+
+    .btn-animate::before {
+        transform: rotate(135deg) translateX(7px) translateY(-7px);
+    }
+
+    .btn-animate::after {
+        transform: rotate(-135deg) translateX(7px) translateY(7px);
+    }
+
+    &__background {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        height: 4rem;
+        width: 4rem;
+        background-image: radial-gradient(#7ed56f, #28b485);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 50%;
+
+        transition: all 0.5s cubic-bezier(0.86, 0, 0.07, 1),
+            -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+
+        // opacity: 1;
+        // width: 0;
+    }
 
     &__menu {
         display: none;
@@ -25,4 +105,10 @@
         color: white;
         margin-top: 2rem;
     }
+}
+
+.nav-open {
+    height: 6rem;
+    width: 6rem;
+    transform: scale(80);
 }

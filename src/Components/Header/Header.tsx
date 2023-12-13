@@ -1,26 +1,11 @@
 import './header.scss';
 import logo from '../../assets/images/logo-white.png';
-import { useState } from 'react';
 
-interface navBarProps {
-    navOpened: any;
-    navIsOpen: boolean;
-}
-export default function Header({ navOpened, navIsOpen }: navBarProps) {
+export default function Header() {
     return (
         <>
             <div className="header">
                 <img className="logo" src={logo} alt="logo" />
-                <button
-                    onClick={() => navOpened(!navIsOpen)}
-                    className={!navIsOpen ? 'nav-btn' : 'nav-btn btn-animate'}
-                >
-                    <span></span>
-                </button>
-
-                <div className="navigation">
-                    <div className="navigation__background">&nbsp;</div>
-                </div>
 
                 <div className="text-box">
                     <h1 className="text-box__primary-main">Outdoors</h1>

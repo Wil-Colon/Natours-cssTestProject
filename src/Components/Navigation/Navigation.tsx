@@ -1,13 +1,29 @@
 import './navigation.scss';
+import { useState } from 'react';
 
-interface navBarProps {
-    navIsOpen: any;
-}
-
-export default function Navigation({ navIsOpen }: navBarProps) {
-    console.log(navIsOpen);
+export default function Navigation() {
+    const [navIsOpen, setNavIsOpen] = useState(false);
     return (
         <div className="navigation">
+            <button
+                onClick={() => setNavIsOpen(!navIsOpen)}
+                className={
+                    !navIsOpen
+                        ? 'navigation__btn'
+                        : 'navigation__btn btn-animate'
+                }
+            >
+                <span></span>
+            </button>
+            <div
+                className={
+                    !navIsOpen
+                        ? 'navigation__background'
+                        : 'navigation__background nav-open'
+                }
+            >
+                &nbsp;
+            </div>
             <div className="navigation__menu">
                 <div className="navigation__item">01 About Natours</div>
                 <div className="navigation__item">02 your benefits</div>

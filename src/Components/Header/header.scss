@@ -1,6 +1,7 @@
 @import '../../index.scss';
 
 .header {
+    position: relative;
     display: grid;
     height: 95vh;
     background-image: linear-gradient(
@@ -24,70 +25,6 @@
         margin: 3rem 0 0 1.5rem;
     }
 
-    .nav-btn {
-        z-index: 2;
-        position: fixed;
-        width: 6rem;
-        height: 6rem;
-        padding: 1.5rem;
-        margin: 1.5rem 1.5rem 0 0;
-        grid-column: 3/4;
-        grid-row: 1/2;
-        background-color: white;
-        justify-self: end;
-        border-radius: 50%;
-        border-style: none;
-        display: flex;
-        flex-direction: column;
-        transition: all 0.2s;
-        cursor: pointer;
-
-        justify-content: space-between;
-
-        @media only screen and (max-width: $bp-small) {
-            transform: scale(0.8);
-        }
-
-        &::before {
-            content: '';
-            background-color: $color-grey-dark-2;
-            width: 3rem;
-            height: 0.2rem;
-            margin: auto;
-            transition: all 0.2s;
-        }
-
-        & span {
-            background-color: $color-grey-dark-2;
-            content: '';
-            width: 3rem;
-            height: 0.2rem;
-            margin: auto;
-            transition: all 0.1s;
-        }
-
-        &::after {
-            content: '';
-            background-color: $color-grey-dark-2;
-            width: 3rem;
-            height: 0.2rem;
-            margin: auto;
-            transition: all 0.2s;
-        }
-    }
-
-    .btn-animate span {
-        width: 0rem;
-    }
-
-    .btn-animate::before {
-        transform: rotate(135deg) translateX(7px) translateY(-7px);
-    }
-
-    .btn-animate::after {
-        transform: rotate(-135deg) translateX(7px) translateY(7px);
-    }
-
     .text-box {
         color: white;
         grid-column: 2/3;
@@ -96,7 +33,6 @@
         align-self: center;
         justify-self: center;
         text-align: center;
-        z-index: 1;
 
         &__primary-main {
             font-size: 8rem;
