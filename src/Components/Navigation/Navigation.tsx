@@ -10,7 +10,7 @@ export default function Navigation() {
                 className={
                     !navIsOpen
                         ? 'navigation__btn'
-                        : 'navigation__btn btn-animate'
+                        : 'navigation__btn btn-animation'
                 }
             >
                 <span></span>
@@ -24,7 +24,13 @@ export default function Navigation() {
             >
                 &nbsp;
             </div>
-            <div className="navigation__menu">
+            <div
+                className={
+                    !navIsOpen
+                        ? 'navigation__menu'
+                        : 'navigation__menu menu-animation'
+                }
+            >
                 <div className="navigation__item">01 About Natours</div>
                 <div className="navigation__item">02 your benefits</div>
                 <div className="navigation__item">03 popular tours</div>
