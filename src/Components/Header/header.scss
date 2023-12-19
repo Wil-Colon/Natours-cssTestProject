@@ -14,7 +14,7 @@
     background-position: top;
     grid-template-columns: 1fr minmax(20rem, 2fr) 1fr;
     grid-template-rows: 1fr 25rem repeat(2, 1fr);
-    clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
 
     @media only screen and (max-width: $bp-small) {
         grid-template-rows: 1fr 15rem repeat(2, 1fr);
@@ -33,6 +33,11 @@
         align-self: center;
         justify-self: center;
         text-align: center;
+
+        & > *::selection {
+            color: white;
+            background: #55c57a;
+        }
 
         &__primary-main {
             font-size: 8rem;
