@@ -48,7 +48,7 @@ export default function About() {
                 />
             </div>
 
-            <a href="about" className="btn-link">
+            <a href="about" className="section-about__btn-link">
                 Learn more
             </a>
         </div>

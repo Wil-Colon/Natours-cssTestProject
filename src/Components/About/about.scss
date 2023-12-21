@@ -1,9 +1,14 @@
+@import '../../index.scss';
+
 .section-about {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     background-color: #f7f7f7;
-
     margin-top: -30rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-columns: 1fr;
+    }
 
     &__header {
         grid-column: 1/-1;
@@ -38,6 +43,7 @@
                 margin-bottom: 2rem;
             }
             p {
+                margin-bottom: 2rem;
                 font-size: 1.6rem;
                 font-weight: 400;
             }
@@ -49,9 +55,11 @@
     }
 
     &__composition {
-        position: relative;
         &__photo {
-            width: 30rem;
+            width: 50%;
         }
+    }
+
+    &__btn-link {
     }
 }
