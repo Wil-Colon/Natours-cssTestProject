@@ -1,22 +1,28 @@
 @import '../../index.scss';
 
 .section-about {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
+    // grid-template-columns: 1fr minmax(40rem, 1fr);
     background-color: #f7f7f7;
     margin-top: -30rem;
+    // grid-gap: 3rem;
+
+    width: 100%;
+    overflow: hidden;
 
     @media only screen and (max-width: $bp-medium) {
         grid-template-columns: 1fr;
     }
 
     &__header {
-        grid-column: 1/-1;
+        // grid-column: 1/-1;
+
         text-align: center;
         margin: 5rem;
         margin-top: 30rem;
 
-        font-size: 3.3rem;
+        font-size: 4rem;
         font-weight: 700;
         letter-spacing: 0.3rem;
         text-transform: uppercase;
@@ -24,40 +30,98 @@
         background-image: linear-gradient(to right, #7ed56f, #28b485);
         -webkit-background-clip: text;
         color: transparent;
+
+        @media only screen and (max-width: $bp-largest) {
+            font-size: 3rem;
+        }
+        @media only screen and (max-width: $bp-large) {
+            font-size: 2rem;
+        }
     }
 
     &__row {
-        grid-column: 1/2;
+        // position: relative;
 
+        // grid-column: 1/2;
+        // flex-direction: column;
+        align-self: center;
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        // width: 60%;
+        min-width: 40rem;
+        height: 50rem;
+        position: relative;
 
-        margin: 8rem;
+        &-heading-tertiary {
+            flex-basis: 50%;
+            margin-right: 10rem;
+            margin-left: 10rem;
 
-        &__heading-tertiary {
+            font-size: 1.8rem;
+
+            @media only screen and (max-width: $bp-xlarge) {
+                font-size: 1.5rem;
+                margin-right: 4rem;
+                margin-left: 4rem;
+            }
+
+            @media only screen and (max-width: $bp-large) {
+                font-size: 1.2rem;
+            }
+
             h3 {
-                font-size: 1.6rem;
+                // font-size: 2rem;
                 font-weight: 700;
                 text-transform: uppercase;
                 margin-bottom: 2rem;
             }
             p {
                 margin-bottom: 2rem;
-                font-size: 1.6rem;
+                // font-size: 1.8rem;
                 font-weight: 400;
+            }
+        }
+
+        &-photos {
+            position: relative;
+            // grid-row: 2/3;
+            // grid-column: 2/3;
+
+            flex-basis: 50%;
+            // margin-right: 10rem;
+            // right: 15rem;
+
+            @media only screen and (max-width: $bp-xlarge) {
+                // width: ;
+            }
+
+            & .photo {
+                position: absolute;
+                width: 50%;
+
+                &--p1 {
+                    top: 0;
+                    left: 0;
+                    // @media only screen and (max-width: $bp-large) {
+                    //     left: 15rem;
+                    // }
+                }
+                &--p2 {
+                    top: 5rem;
+                    left: 25rem;
+                }
+                &--p3 {
+                    top: 15rem;
+                    left: 8rem;
+                    // @media only screen and (max-width: $bp-large) {
+                    //     top: 12rem;
+                    // }
+                }
             }
         }
     }
 
     .btn-link {
         background-color: orange;
-    }
-
-    &__composition {
-        &__photo {
-            width: 50%;
-        }
     }
 
     &__btn-link {
