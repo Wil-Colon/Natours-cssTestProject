@@ -25,6 +25,10 @@ export default function About() {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Asperiores nulla deserunt voluptatum nam.
                     </p>
+
+                    <a href="about" className="btn">
+                        Learn more &rarr;
+                    </a>
                 </div>
 
                 <div className="section-about__row-photos">
@@ -33,10 +37,6 @@ export default function About() {
                     <img src={img3} alt="photo3" className="photo photo--p3" />
                 </div>
             </div>
-
-            {/* <a href="about" className="section-about__btn-link">
-                Learn more
-            </a> */}
         </div>
     );
 }

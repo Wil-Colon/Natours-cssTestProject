@@ -3,11 +3,8 @@
 .section-about {
     display: flex;
     flex-direction: column;
-    // grid-template-columns: 1fr minmax(40rem, 1fr);
     background-color: #f7f7f7;
     margin-top: -30rem;
-    // grid-gap: 3rem;
-
     width: 100%;
     overflow: hidden;
 
@@ -16,17 +13,13 @@
     }
 
     &__header {
-        // grid-column: 1/-1;
-
         text-align: center;
         margin: 5rem;
-        margin-top: 30rem;
-
+        margin-top: 40rem;
         font-size: 4rem;
         font-weight: 700;
         letter-spacing: 0.3rem;
         text-transform: uppercase;
-
         background-image: linear-gradient(to right, #7ed56f, #28b485);
         -webkit-background-clip: text;
         color: transparent;
@@ -40,23 +33,43 @@
     }
 
     &__row {
-        // position: relative;
-
-        // grid-column: 1/2;
-        // flex-direction: column;
         align-self: center;
         display: flex;
-        // width: 60%;
         min-width: 40rem;
         height: 50rem;
         position: relative;
 
+        @media only screen and (max-width: $bp-medium) {
+            flex-direction: column;
+            width: 55%;
+            height: 65rem;
+        }
         &-heading-tertiary {
             flex-basis: 50%;
             margin-right: 10rem;
             margin-left: 10rem;
-
             font-size: 1.8rem;
+            text-underline-offset: 1rem;
+
+            & .btn {
+                display: inline-block;
+                color: $color-secondary;
+                font-size: 1.5rem;
+                text-decoration: underline;
+                text-decoration-color: $color-secondary;
+                box-shadow: ($box-shadow);
+                font-weight: 400;
+                width: 10.5rem;
+                height: 3.5rem;
+                padding: 0.5rem;
+                transition: all 0.2s;
+
+                &:hover {
+                    background-color: $color-secondary;
+                    color: white;
+                    transform: translateY(-0.2rem);
+                }
+            }
 
             @media only screen and (max-width: $bp-xlarge) {
                 font-size: 1.5rem;
@@ -69,61 +82,78 @@
             }
 
             h3 {
-                // font-size: 2rem;
                 font-weight: 700;
                 text-transform: uppercase;
                 margin-bottom: 2rem;
             }
             p {
                 margin-bottom: 2rem;
-                // font-size: 1.8rem;
                 font-weight: 400;
             }
         }
 
         &-photos {
             position: relative;
-            // grid-row: 2/3;
-            // grid-column: 2/3;
-
             flex-basis: 50%;
-            // margin-right: 10rem;
-            // right: 15rem;
 
-            @media only screen and (max-width: $bp-xlarge) {
-                // width: ;
+            &:has(:hover) > img:not(:hover) {
+                transform: scale(0.9);
+            }
+
+            @media only screen and (max-width: $bp-largest) {
+                min-width: 50rem;
+            }
+
+            @media only screen and (max-width: $bp-large) {
+                min-width: 40rem;
+            }
+
+            @media only screen and (max-width: $bp-medium) {
+                margin: 2.5rem;
             }
 
             & .photo {
                 position: absolute;
                 width: 50%;
+                transition: all 0.2s;
+                box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.4);
+
+                & img {
+                    top: 2rem;
+                }
+
+                &:hover {
+                    outline: 1.5rem $color-secondary solid;
+                    outline-offset: 2rem;
+                    border-radius: 2rem;
+                    z-index: 1;
+                }
 
                 &--p1 {
                     top: 0;
                     left: 0;
-                    // @media only screen and (max-width: $bp-large) {
-                    //     left: 15rem;
-                    // }
                 }
+
                 &--p2 {
                     top: 5rem;
                     left: 25rem;
+
+                    @media only screen and (max-width: $bp-large) {
+                        top: 5rem;
+                        left: 15rem;
+                    }
                 }
+
                 &--p3 {
                     top: 15rem;
                     left: 8rem;
-                    // @media only screen and (max-width: $bp-large) {
-                    //     top: 12rem;
-                    // }
+
+                    @media only screen and (max-width: $bp-large) {
+                        top: 10rem;
+                        left: 8rem;
+                    }
                 }
             }
         }
-    }
-
-    .btn-link {
-        background-color: orange;
-    }
-
-    &__btn-link {
     }
 }
