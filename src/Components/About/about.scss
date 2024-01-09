@@ -1,7 +1,10 @@
 @import '../../index.scss';
 
 .section-about {
+    z-index: 1;
+    position: relative;
     display: flex;
+    clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
     flex-direction: column;
     background-color: #f7f7f7;
     margin-top: -30rem;
@@ -9,6 +12,11 @@
     overflow: hidden;
 
     @media only screen and (max-width: $bp-medium) {
+        grid-template-columns: 1fr;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
         grid-template-columns: 1fr;
     }
 
@@ -36,14 +44,16 @@
         align-self: center;
         display: flex;
         min-width: 40rem;
-        height: 50rem;
+        height: 70rem;
         position: relative;
 
         @media only screen and (max-width: $bp-medium) {
             flex-direction: column;
             width: 55%;
-            height: 65rem;
+            height: 80rem;
+            margin-bottom: 10rem;
         }
+
         &-heading-tertiary {
             flex-basis: 50%;
             margin-right: 10rem;

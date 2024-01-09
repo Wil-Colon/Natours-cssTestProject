@@ -1,0 +1,54 @@
+@import '../../index.scss';
+
+.features {
+    position: relative;
+    display: flex;
+    background-image: linear-gradient(
+            to right bottom,
+            rgba(126, 213, 111, 0.8),
+            rgba(40, 180, 133, 0.8)
+        ),
+        url('../../assets/images/nat-4.jpg');
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
+    margin-top: -25rem;
+    flex-direction: column;
+    align-items: center;
+
+    @media only screen and (max-width: $bp-small) {
+        clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+    }
+
+    & .features-container {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin: 35rem 0;
+
+        &__card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-basis: 30rem;
+            margin: 1rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 0.3rem;
+
+            & h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            & p {
+                text-align: center;
+                font-size: 1.8rem;
+                font-weight: 400;
+                margin: 0 2rem 2rem;
+            }
+        }
+
+        &__icon {
+            fill: $color-secondary;
+            width: 8rem;
+        }
+    }
+}
