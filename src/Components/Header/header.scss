@@ -1,10 +1,11 @@
 @import '../../index.scss';
 
 .header {
-    position: relative;
     z-index: 10;
+    position: relative;
     display: grid;
     height: 95vh;
+    overflow: hidden;
     background-image: linear-gradient(
             to right bottom,
             rgba(126, 213, 111, 0.8),
@@ -28,9 +29,9 @@
     }
 
     .text-box {
-        color: white;
         grid-column: 2/3;
         grid-row: 2/3;
+        color: white;
         text-transform: uppercase;
         align-self: center;
         justify-self: center;

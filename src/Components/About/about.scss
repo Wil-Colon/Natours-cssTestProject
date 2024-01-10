@@ -15,8 +15,8 @@
         grid-template-columns: 1fr;
     }
 
-    @media only screen and (max-width: $bp-small) {
-        clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+    @media only screen and (max-width: $bp-medium) {
+        clip-path: polygon(0 0, 100% 0%, 100% 95%, 0% 100%);
         grid-template-columns: 1fr;
     }
 
@@ -51,7 +51,7 @@
             flex-direction: column;
             width: 55%;
             height: 80rem;
-            margin-bottom: 10rem;
+            // margin-bottom: 10rem;
         }
 
         &-heading-tertiary {
@@ -67,7 +67,6 @@
                 font-size: 1.5rem;
                 text-decoration: underline;
                 text-decoration-color: $color-secondary;
-                box-shadow: ($box-shadow);
                 font-weight: 400;
                 width: 10.5rem;
                 height: 3.5rem;
@@ -78,6 +77,7 @@
                     background-color: $color-secondary;
                     color: white;
                     transform: translateY(-0.2rem);
+                    box-shadow: ($box-shadow);
                 }
             }
 

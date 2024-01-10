@@ -15,8 +15,9 @@
     flex-direction: column;
     align-items: center;
 
-    @media only screen and (max-width: $bp-small) {
-        clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+    @media only screen and (max-width: $bp-medium) {
+        clip-path: polygon(0 0, 100% 0%, 100% 94%, 0% 100%);
+        background-position: 0rem 12rem;
     }
 
     & .features-container {
@@ -24,6 +25,11 @@
         justify-content: space-evenly;
         flex-wrap: wrap;
         margin: 35rem 0;
+        max-width: 150rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            margin: 28rem 0 10rem;
+        }
 
         &__card {
             display: flex;
@@ -33,22 +39,54 @@
             margin: 1rem;
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 0.3rem;
+            box-shadow: $box-shadow;
+            transition: all 0.2s;
+            min-width: 28rem;
+
+            &:hover {
+                transform: translateY(-1.5rem) scale(1.03);
+
+                @media only screen and (max-width: $bp-medium) {
+                    transform: translateY(-1.5rem) scale(0.9);
+                }
+            }
+
+            @media only screen and (max-width: $bp-medium) {
+                transform: scale(0.8);
+                flex-grow: 1;
+                margin-bottom: -1rem;
+            }
 
             & h2 {
                 font-size: 2rem;
                 margin-bottom: 2rem;
+
+                @media only screen and (max-width: $bp-medium) {
+                    font-size: 1.8rem;
+                    margin-bottom: 0.5rem;
+                }
             }
             & p {
                 text-align: center;
                 font-size: 1.8rem;
                 font-weight: 400;
                 margin: 0 2rem 2rem;
+
+                @media only screen and (max-width: $bp-medium) {
+                    font-size: 1.6rem;
+                    margin-bottom: 1rem;
+                }
             }
         }
 
         &__icon {
             fill: $color-secondary;
             width: 8rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                width: 7rem;
+                height: 10rem;
+            }
         }
     }
 }
